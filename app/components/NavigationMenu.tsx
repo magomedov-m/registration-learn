@@ -28,7 +28,7 @@ export default function NavigationMenu({}: Props) {
           </li>
           <li>
             <a
-              href="/signin"
+              href="/auth"
               className="hover:text-purple-600 transition-colors"
             >
               Sign In

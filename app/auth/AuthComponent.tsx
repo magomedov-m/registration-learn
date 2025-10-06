@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from 'react'
 
 type Props = object
@@ -46,7 +48,7 @@ export default function AuthComponent({}: Props) {
       </form>
 
       <p className="text-sm text-gray-500 mt-4 text-center">
-        Don`t have an account? <a href="/register" className="text-purple-600 hover:underline">Register</a>
+        Don`t have an account? <button onClick={() => setLogin(false)} className="text-purple-600 hover:underline">Register</button>
       </p>
     </div> : <div className="max-w-md mx-auto mt-12 bg-white rounded-2xl shadow p-8">
       <h2 className="text-2xl font-bold mb-6 text-center">Create Account</h2>
@@ -100,7 +102,7 @@ export default function AuthComponent({}: Props) {
       </form>
 
       <p className="text-sm text-gray-500 mt-4 text-center">
-        Already have an account? <a href="/signin" className="text-purple-600 hover:underline">Sign In</a>
+        Already have an account? <button onClick={() => setLogin(true)} className="text-purple-600 hover:underline">Sign In</button>
       </p>
     </div>
     }
