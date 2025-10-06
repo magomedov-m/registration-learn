@@ -20,6 +20,7 @@ export default function AuthComponent({}: Props) {
         
       } catch (err) {
         console.error(`Ошибка: ${err}`)
+      }
     }
 
   return (
