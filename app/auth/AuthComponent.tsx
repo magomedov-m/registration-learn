@@ -6,6 +6,20 @@ type Props = object
 
 export default function AuthComponent({}: Props) {
     const [login, setLogin] = useState<boolean>(true);
+    const [email, setEmail] = useState<string>("");
+    const [name, setName] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+
+    const handleEmailAuth = async (e: React.FormEvent) => {
+      e.preventDefault();
+
+      try {
+        
+      } catch (err) {
+        console.error(`Ошибка: ${err}`)
+      }
+    }
+
   return (
     <>
     {
@@ -59,6 +73,7 @@ export default function AuthComponent({}: Props) {
             Full Name
           </label>
           <input
+          onChange={(e) => setName(e.target.value)}
             id="fullname"
             type="text"
             placeholder="John Doe"
@@ -72,6 +87,7 @@ export default function AuthComponent({}: Props) {
             Email
           </label>
           <input
+          onChange={(e) => setEmail(e.target.value)}
             id="email"
             type="email"
             placeholder="email@example.com"
@@ -85,6 +101,7 @@ export default function AuthComponent({}: Props) {
             Password
           </label>
           <input
+          onChange={(e) => setPassword(e.target.value)}
             id="password"
             type="password"
             placeholder="********"
