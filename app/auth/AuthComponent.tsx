@@ -1,5 +1,6 @@
 "use client"
 
+import { signUp } from '@/utils/actions/auth-actions';
 import React, { useState } from 'react'
 
 type Props = object
@@ -14,6 +15,8 @@ export default function AuthComponent({}: Props) {
       e.preventDefault();
 
       try {
+
+        const result = await signUp(email, password, name);
         
       } catch (err) {
         console.error(`Ошибка: ${err}`)
@@ -111,6 +114,7 @@ export default function AuthComponent({}: Props) {
 
         {/* Submit Button */}
         <button
+        onClick={handleEmailAuth}
           type="submit"
           className="w-full py-2 bg-purple-600 text-white font-semibold rounded shadow hover:bg-purple-700"
         >
