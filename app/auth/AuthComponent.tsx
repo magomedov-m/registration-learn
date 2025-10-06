@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 type Props = object
 
 export default function AuthComponent({}: Props) {
-    const [login, setLogin] = useState<boolean>(true);
+    const [login, setLogin] = useState<boolean>(false);
     const [email, setEmail] = useState<string>("");
     const [name, setName] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -20,7 +20,6 @@ export default function AuthComponent({}: Props) {
         
       } catch (err) {
         console.error(`Ошибка: ${err}`)
-      }
     }
 
   return (
