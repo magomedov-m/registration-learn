@@ -27,9 +27,8 @@ export default function AuthComponent({}: Props) {
     <>
     {
         login ? <div className="max-w-md mx-auto mt-12 bg-white rounded-2xl shadow p-8">
-      <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
+      <h2 className="text-2xl font-bold mb-6 cursor-pointer text-center">Sign In</h2>
       <form className="space-y-4">
-        {/* Email */}
         <div>
           <label className="block text-gray-700 font-medium mb-1" htmlFor="email">
             Email
@@ -42,7 +41,6 @@ export default function AuthComponent({}: Props) {
           />
         </div>
 
-        {/* Password */}
         <div>
           <label className="block text-gray-700 font-medium mb-1" htmlFor="password">
             Password
@@ -55,22 +53,20 @@ export default function AuthComponent({}: Props) {
           />
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
-          className="w-full py-2 bg-purple-600 text-white font-semibold rounded shadow hover:bg-purple-700"
+          className="w-full py-2 bg-purple-600 text-white cursor-pointer font-semibold rounded shadow hover:bg-purple-700"
         >
           Sign In
         </button>
       </form>
 
       <p className="text-sm text-gray-500 mt-4 text-center">
-        Don`t have an account? <button onClick={() => setLogin(false)} className="text-purple-600 hover:underline">Register</button>
+        Don`t have an account? <button onClick={() => setLogin(false)} className="text-purple-600 cursor-pointer hover:underline">Register</button>
       </p>
     </div> : <div className="max-w-md mx-auto mt-12 bg-white rounded-2xl shadow p-8">
       <h2 className="text-2xl font-bold mb-6 text-center">Create Account</h2>
       <form className="space-y-4">
-        {/* Full Name */}
         <div>
           <label className="block text-gray-700 font-medium mb-1" htmlFor="fullname">
             Full Name
@@ -84,7 +80,6 @@ export default function AuthComponent({}: Props) {
           />
         </div>
 
-        {/* Email */}
         <div>
           <label className="block text-gray-700 font-medium mb-1" htmlFor="email">
             Email
@@ -98,7 +93,6 @@ export default function AuthComponent({}: Props) {
           />
         </div>
 
-        {/* Password */}
         <div>
           <label className="block text-gray-700 font-medium mb-1" htmlFor="password">
             Password
@@ -112,18 +106,17 @@ export default function AuthComponent({}: Props) {
           />
         </div>
 
-        {/* Submit Button */}
         <button
         onClick={handleEmailAuth}
           type="submit"
-          className="w-full py-2 bg-purple-600 text-white font-semibold rounded shadow hover:bg-purple-700"
+          className="w-full py-2 bg-purple-600 text-white font-semibold rounded shadow cursor-pointer hover:bg-purple-700"
         >
           Register
         </button>
       </form>
 
       <p className="text-sm text-gray-500 mt-4 text-center">
-        Already have an account? <button onClick={() => setLogin(true)} className="text-purple-600 hover:underline">Sign In</button>
+        Already have an account? <button onClick={() => setLogin(true)} className="text-purple-600 cursor-pointer cursor-pointer hover:underline">Sign In</button>
       </p>
     </div>
     }
