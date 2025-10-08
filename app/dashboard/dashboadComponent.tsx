@@ -1,9 +1,18 @@
+"use client"
 /* eslint-disable @next/next/no-img-element */
+import { signOut } from '@/utils/actions/auth-actions'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 type Props = object
 
 export default function DashboadComponent({}: Props) {
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    await signOut();
+    router.push("/auth");
+  }
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       {/* Header */}
@@ -22,7 +31,7 @@ export default function DashboadComponent({}: Props) {
             <p className="font-medium">John Doe</p>
             <p className="text-gray-500 text-sm">email@gmail.com</p>
           </div>
-          <button className="ml-4 px-4 py-2 bg-white border border-gray-300 rounded shadow hover:bg-gray-100">
+          <button onClick={handleSignOut} className="ml-4 px-4 py-2 bg-white border border-gray-300 cursor-pointer rounded shadow hover:bg-gray-100">
             Sign Out
           </button>
         </div>
