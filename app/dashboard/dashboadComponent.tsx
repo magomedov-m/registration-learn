@@ -1,12 +1,16 @@
 "use client"
 /* eslint-disable @next/next/no-img-element */
 import { signOut } from '@/utils/actions/auth-actions'
+import { auth } from '@/utils/auth'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import Image from 'next/image'
 
-type Props = object
+type Session = typeof auth.$Infer.Session;
 
-export default function DashboadComponent({}: Props) {
+export default function DashboadComponent({session}: {session: Session | null}) {
+  const user = session?.user;
+
   const router = useRouter();
 
   const handleSignOut = async () => {
@@ -15,21 +19,23 @@ export default function DashboadComponent({}: Props) {
   }
   return (
     <div className="min-h-screen bg-gray-50 p-8">
-      {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-2xl font-bold">Welcome to Your Dashboard!</h1>
           <p className="text-gray-500">Manage your account and explore better-auth features</p>
         </div>
         <div className="flex items-center space-x-4">
-          <img
-            src="/profile-placeholder.png"
-            alt="John Doe"
-            className="w-10 h-10 rounded-full"
+          <Image
+            src={user?.image || "/profile-placeholder.png"}
+            alt={user?.name || "User avatar"}
+            width={40}
+            height={40}
+            className="rounded-full"
           />
+
           <div className="text-right">
-            <p className="font-medium">John Doe</p>
-            <p className="text-gray-500 text-sm">email@gmail.com</p>
+            <p className="font-medium">{user?.name}</p>
+            <p className="text-gray-500 text-sm">{user?.email}</p>
           </div>
           <button onClick={handleSignOut} className="ml-4 px-4 py-2 bg-white border border-gray-300 cursor-pointer rounded shadow hover:bg-gray-100">
             Sign Out
@@ -37,22 +43,21 @@ export default function DashboadComponent({}: Props) {
         </div>
       </div>
 
-      {/* Authentication Status */}
       <div className="bg-white rounded-2xl shadow p-6 mb-8">
         <h2 className="font-semibold text-lg mb-4">Authentication Status</h2>
         <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
           <div>
             <span className="font-medium">Status:</span>{" "}
-            <span className="text-green-500 font-semibold">Authenticated</span>
+            <span className="text-green-500 font-semibold">{}</span>
           </div>
           <div>
             <span className="font-medium">Provider:</span> Better-Auth
           </div>
           <div>
-            <span className="font-medium">User ID:</span> 1234566
+            <span className="font-medium">User ID:</span> {user?.id}
           </div>
           <div>
-            <span className="font-medium">Email Verified:</span> Yes
+            <span className="font-medium">Email Verified:</span> {user?.emailVerified ? 'Да' : 'Нет'}
           </div>
         </div>
       </div>
