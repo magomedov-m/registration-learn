@@ -4,7 +4,6 @@ import React from 'react'
 type Session = typeof auth.$Infer.Session;
 
 export default function NavigationMenu({session}: { session: Session | null }) {
-  console.log('session:', session?.session.ipAddress)
   
   return (
     <header className="bg-white shadow-sm py-4 px-8 flex justify-between items-center">

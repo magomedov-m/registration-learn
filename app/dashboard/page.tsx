@@ -15,6 +15,6 @@ export default async function page({}: Props) {
     redirect("/auth");
   }
   return (
-    <DashboadComponent />
+    <DashboadComponent session={session} />
   )
 }
